@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-inter text-text-dark bg-white overflow-x-hidden antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-poppins;
+  }
+}
+
+@layer components {
+  /* Cinematic Geometry & Shadows */
+  .shadow-premium {
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.05), 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Custom Hover Effects */
+  .hover-lift {
+    @apply transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl;
+  }
+
+  /* Glassmorphism Classes */
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-xl border border-white/20;
+  }
+}
+
+/* Custom Scrollbar for a Premium Feel */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-surface;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-accent/20 rounded-full hover:bg-accent/40 transition-colors;
+}
+
+/* GSAP Helper Classes applied in JS but initialized for clarity */
+.v2-reveal { opacity: 0; }
+.v2-reveal-right { opacity: 0; }
+.v2-reveal-up > * { opacity: 0; }
+
+/* Text Animations and Specific Deco */
+.underline-gold {
+  @apply underline decoration-gold/40 decoration-wavy underline-offset-8;
+}
+
+/* Animations for floating shapes */
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(2deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.float-slow {
+  animation: float 6s ease-in-out infinite;
+}
